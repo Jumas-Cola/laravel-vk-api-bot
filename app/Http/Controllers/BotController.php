@@ -10,7 +10,11 @@ class BotController extends Controller
     {
         switch ( $request->type ) {
             case 'confirmation':
-                return env('VK_CONFIRMATION');
+                if ( $request->group_id == env('VK_GROUP_ID') ) {
+                    return env('VK_CONFIRMATION');
+                }
+
+                return response()->json(['message' => 'Group id invalid'], 403);
             case 'message_new':
                 return (new NewMessageController)->handle($request);
             default:
