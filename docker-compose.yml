@@ -51,7 +51,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: Vahzee-g1quu
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: laravel
     networks:
       - app-network
