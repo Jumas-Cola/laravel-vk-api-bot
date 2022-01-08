@@ -10,7 +10,9 @@ class BotController extends Controller
     {
         switch ( $request->type ) {
             case 'confirmation':
-                return;
+                return env('VK_CONFIRMATION');
+            case 'message_new':
+                return (new NewMessageController)->handle($request);
             default:
                 return response()->json(['message' => 'ok']);
         }

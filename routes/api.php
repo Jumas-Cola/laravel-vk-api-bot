@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('bot', [BotController::class, 'handle']);
+Route::post('bot', [BotController::class, 'handle'])
+    ->middleware('vk-secret-valid');
